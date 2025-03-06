@@ -17,10 +17,27 @@ class UserRepository {
         await write(users)
         return newUser
     }
-    async getById(id){
+
+    async getById(id) {
         const users = await read();
         const index = users.findIndex(user => user.id === Number(id));
         return users[index]
+    }
+
+    async updateById(id, user) {
+        const users = await read();
+        const index = users.findIndex(user => user.id === Number(id));
+        user.id = id
+        users[index] = user
+        await write(users)
+        return user
+    }
+
+    async deleteById(id){
+        const users = await read();
+        const index = users.findIndex(user => user.id === Number(id));
+        users.splice(index,1)
+        await write(users)
     }
 }
 
