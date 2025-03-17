@@ -4,12 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "rimraf dist && tsc-watch --onSuccess \"npm run watch:server\"",
-    "watch:server": "ts-node src/main.ts --watch"
+    "watch:server": "nodemon --exec ts-node src/main.ts"
   },
   "dependencies": {
     "express": "^4.21.2",
     "mongoose": "^8.12.1",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "joi": "^17.13.3"
   },
   "devDependencies": {
     "typescript": "^5.8.2",
@@ -17,7 +18,18 @@
     "@types/mongoose": "^5.11.97",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
-    "tsc-watch": "^6.2.1"
+    "tsc-watch": "^6.2.1",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@eslint/js": "^9.22.0",
+    "nodemon": "^3.1.9"
   },
   "author": "",
   "license": "ISC",
