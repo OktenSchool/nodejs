@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import express, { Request, Response, NextFunction } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
+
 import { config } from "./configs/config";
-import { apiRouter } from "./routers/api.router";
 import { ApiError } from "./errors/api.error";
+import { apiRouter } from "./routers/api.router";
 
 const app = express();
 app.use(express.json());
@@ -14,9 +15,9 @@ app.use("/", apiRouter);
 
 app.use(
     "*",
-         (err: ApiError, req: Request, res: Response, next: NextFunction) => {
+    (err: ApiError, req: Request, res: Response, next: NextFunction) => {
         const status = err.status || 500;
-             const message = err.message ?? "Something went wrong";
+        const message = err.message ?? "Something went wrong";
         res.status(status).json({ status, message });
     },
 );

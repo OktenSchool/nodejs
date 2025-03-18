@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+import { model, Schema } from "mongoose";
+
 import { IUser } from "../interfaces/user.interface";
 
 const userSchema = new Schema(
