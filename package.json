@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "rimraf dist && tsc-watch --onSuccess \"npm run watch:server\"",
-    "watch:server": "ts-node src/main.ts --watch"
+    "watch:server": "tsx src/main.ts --watch"
   },
   "dependencies": {
     "express": "^4.21.2",
@@ -18,18 +18,16 @@
     "@types/express": "^5.0.0",
     "@types/mongoose": "^5.11.97",
     "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
     "tsc-watch": "^6.2.1",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "globals": "^16.0.0",
-    "typescript-eslint": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@eslint/js": "^9.22.0"
+    "@eslint/js": "^9.22.0",
+    "tsx": "^4.19.3"
   },
   "author": "",
   "license": "ISC",

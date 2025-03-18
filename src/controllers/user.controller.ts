@@ -1,7 +1,8 @@
-import { Request, Response,NextFunction } from "express";
-import { userService } from "../services/user.service";
-import { IUserDTO } from "../interfaces/user.interface";
+import { NextFunction, Request, Response } from "express";
+
 import { StatusCodesEnum } from "../enums/status-codes.enum";
+import { IUserDTO } from "../interfaces/user.interface";
+import { userService } from "../services/user.service";
 
 class UserController {
     public async getAll(req: Request, res: Response) {
@@ -9,14 +10,13 @@ class UserController {
         res.status(StatusCodesEnum.OK).json(data);
     }
 
-    public async create(req: Request, res: Response, next:NextFunction) {
+    public async create(req: Request, res: Response, next: NextFunction) {
         try {
-        const user = req.body as IUserDTO;
-        const data = await userService.create(user);
-        res.status(StatusCodesEnum.CREATED).json(data);
-
-        }catch (e) {
-            next(e)
+            const user = req.body as IUserDTO;
+            const data = await userService.create(user);
+            res.status(StatusCodesEnum.CREATED).json(data);
+        } catch (e) {
+            next(e);
         }
     }
 
@@ -27,7 +27,7 @@ class UserController {
     }
 
     public async updateById(req: Request, res: Response) {
-            const { id } = req.params;
+        const { id } = req.params;
         const user = req.body as IUserDTO;
         const data = await userService.updateById(id, user);
         res.status(StatusCodesEnum.OK).json(data);
