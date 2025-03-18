@@ -2,9 +2,10 @@
   "name": "nodejs",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "rimraf dist && tsc-watch --onSuccess \"npm run watch:server\"",
-    "watch:server": "nodemon --exec ts-node src/main.ts"
+    "watch:server": "ts-node src/main.ts --watch"
   },
   "dependencies": {
     "express": "^4.21.2",
@@ -28,8 +29,7 @@
     "typescript-eslint": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "@typescript-eslint/eslint-plugin": "^8.26.1",
-    "@eslint/js": "^9.22.0",
-    "nodemon": "^3.1.9"
+    "@eslint/js": "^9.22.0"
   },
   "author": "",
   "license": "ISC",
