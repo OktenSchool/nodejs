@@ -10,7 +10,7 @@ export default [
         ignores: ["eslint.config.js", "dist/**"],
         languageOptions: {
             ecmaVersion: "latest",
-            sourceType: "commonjs",
+            sourceType: "module",
             parser: tsParser,
             parserOptions: {
                 project: "./tsconfig.json",
