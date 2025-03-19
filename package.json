@@ -11,12 +11,17 @@
     "express": "^4.21.2",
     "mongoose": "^8.12.1",
     "dotenv": "^16.4.7",
-    "joi": "^17.13.3"
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "bcrypt": "^5.1.1"
   },
   "devDependencies": {
     "typescript": "^5.8.2",
     "@types/express": "^5.0.0",
     "@types/mongoose": "^5.11.97",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/bcrypt": "^5.0.2",
+
     "rimraf": "^6.0.1",
     "tsc-watch": "^6.2.1",
     "eslint": "^9.22.0",
