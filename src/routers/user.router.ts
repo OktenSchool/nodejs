@@ -22,5 +22,17 @@ router.delete(
     commonMiddleware.isIdValidate("id"),
     userController.deleteById,
 );
+router.patch(
+    "/:id/block",
+    authMiddleware.checkAccessToken,
+    authMiddleware.isAdmin,
+    userController.blockUser,
+);
+router.patch(
+    "/:id/unblock",
+    authMiddleware.checkAccessToken,
+    authMiddleware.isAdmin,
+    userController.unBblockUser,
+);
 
 export const userRouter = router;

@@ -25,6 +25,7 @@ class UserService {
 
         return user;
     }
+
     public async updateById(
         userId: string,
         user: IUserUpdateDTO,
@@ -37,6 +38,7 @@ class UserService {
 
         return await userRepository.updateById(userId, user);
     }
+
     public async deleteById(userId: string): Promise<void> {
         const data = await userRepository.getById(userId);
 
@@ -56,6 +58,19 @@ class UserService {
                 StatusCodesEnum.BED_REQUEST,
             );
         }
+    }
+
+    public async isActive(id: string): Promise<boolean> {
+        const user = await this.getById(id);
+        return user.isActive;
+    }
+
+    public blockUser(user_id: string): Promise<IUser> {
+        return userRepository.blockUser(user_id);
+    }
+
+    public unBlockUser(user_id: string): Promise<IUser> {
+        return userRepository.unBlockUser(user_id);
     }
 }
 
