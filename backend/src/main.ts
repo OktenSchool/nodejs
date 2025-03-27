@@ -30,6 +30,7 @@ const dbConnection = async () => {
 
     while (!dbCon) {
         try {
+            console.log(config.MONGO_URI, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
             console.log("Connecting to DB...");
             await mongoose.connect(config.MONGO_URI);
             dbCon = true;
