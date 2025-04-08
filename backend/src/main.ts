@@ -2,14 +2,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
-
+import cors from "cors"
 import { config } from "./configs/config";
 import { ApiError } from "./errors/api.error";
 import { apiRouter } from "./routers/api.router";
-
+import path from 'node:path'
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors({origin:[
+    'http://localhost:3000'
+    ]}))
+app.use('/media', express.static(path.join(process.cwd(), 'upload')))
+
 
 app.use("/", apiRouter);
 
@@ -30,7 +35,7 @@ const dbConnection = async () => {
 
     while (!dbCon) {
         try {
-            console.log("Connecting to DB...");
+            console.log("Connecting to DB...", config.MONGO_URI);
             await mongoose.connect(config.MONGO_URI);
             dbCon = true;
             console.log("Database available!!!");
