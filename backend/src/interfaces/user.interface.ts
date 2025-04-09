@@ -6,13 +6,20 @@ interface IUser extends IBase {
     email: string;
     password: string;
     role: RoleEnum;
-    avatar:string;
+    avatar: string;
     isActive: boolean;
     isDeleted: boolean;
     isVerified: boolean;
     name: string;
     surname: string;
     age: number;
+}
+
+interface IUserQuery {
+    pageSize: number;
+    page: number;
+    search?: string;
+    order?: string;
 }
 
 type IUserCreateDTO = Pick<
@@ -22,4 +29,4 @@ type IUserCreateDTO = Pick<
 
 type IUserUpdateDTO = Pick<IUser, "name" | "surname" | "age">;
 
-export type { IUser, IUserCreateDTO, IUserUpdateDTO };
+export type { IUser, IUserCreateDTO, IUserQuery, IUserUpdateDTO };
