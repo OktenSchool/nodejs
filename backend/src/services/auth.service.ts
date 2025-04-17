@@ -26,18 +26,18 @@ class AuthService {
             role: newUser.role,
         });
         await tokenRepository.create({ ...tokens, _userId: newUser._id });
-        const token = tokenService.generateActionToken(
-            { userId: newUser._id, role: newUser.role },
-            ActionTokenTypeEnum.ACTIVATE,
-        );
-        await emailService.sendEmail(
-            newUser.email,
-            emailConstants[EmailEnum.ACTIVATE],
-            {
-                name: newUser.name,
-                url: `${config.FRONTEND_URL}/activate/${token}`,
-            },
-        );
+        // // const token = tokenService.generateActionToken(
+        // //     { userId: newUser._id, role: newUser.role },
+        //     ActionTokenTypeEnum.ACTIVATE,
+        // );
+        // await emailService.sendEmail(
+        //     newUser.email,
+        //     emailConstants[EmailEnum.ACTIVATE],
+        //     {
+        //         name: newUser.name,
+        //         url: `${config.FRONTEND_URL}/activate/${token}`,
+        //     },
+        // );
         return { user: newUser, tokens };
     }
 
