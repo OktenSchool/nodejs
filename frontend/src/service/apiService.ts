@@ -27,7 +27,7 @@ apiService.interceptors.response.use(res => {
 
         if (error.response.status === 401) {
 
-            if (!isRefreshing) {
+            if (!isRefreshing && authService.getRefreshToken()) {
                 isRefreshing = true
 
                 try {
